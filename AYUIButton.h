@@ -1,6 +1,5 @@
 //
 //  AYUIButton.h
-//  etsy-for-ipad
 //
 //  Created by Andy Yanok on 5/5/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.

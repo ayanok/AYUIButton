@@ -42,27 +42,63 @@
 
 - (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesCancelled:touches withEvent:event];
-
-    UIColor *normalColor = [backgroundStates objectForKey:[NSNumber numberWithInt:UIControlStateNormal]];
-    if (normalColor) {
-        CATransition *animation = [CATransition animation];
-        [animation setType:kCATransitionFade];
-        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-        [self.layer addAnimation:animation forKey:@"EaseOut"];
-        self.backgroundColor = normalColor;
+    
+    if(self.selected) {
+        UIColor *selectedColor = [backgroundStates objectForKey:[NSNumber numberWithInt:UIControlStateSelected]];
+        if (selectedColor) {
+            CATransition *animation = [CATransition animation];
+            [animation setType:kCATransitionFade];
+            [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+            [self.layer addAnimation:animation forKey:@"EaseOut"];
+            self.backgroundColor = selectedColor;
+        }
+    }else{
+        UIColor *normalColor = [backgroundStates objectForKey:[NSNumber numberWithInt:UIControlStateNormal]];
+        if (normalColor) {
+            CATransition *animation = [CATransition animation];
+            [animation setType:kCATransitionFade];
+            [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+            [self.layer addAnimation:animation forKey:@"EaseOut"];
+            self.backgroundColor = normalColor;
+        }
     }
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     
-    UIColor *normalColor = [backgroundStates objectForKey:[NSNumber numberWithInt:UIControlStateNormal]];
-    if (normalColor) {
-        CATransition *animation = [CATransition animation];
-        [animation setType:kCATransitionFade];
-        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-        [self.layer addAnimation:animation forKey:@"EaseOut"];
-        self.backgroundColor = normalColor;
+    if(self.selected) {
+        UIColor *selectedColor = [backgroundStates objectForKey:[NSNumber numberWithInt:UIControlStateSelected]];
+        if (selectedColor) {
+            CATransition *animation = [CATransition animation];
+            [animation setType:kCATransitionFade];
+            [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+            [self.layer addAnimation:animation forKey:@"EaseOut"];
+            self.backgroundColor = selectedColor;
+        }
+    }else{
+        UIColor *normalColor = [backgroundStates objectForKey:[NSNumber numberWithInt:UIControlStateNormal]];
+        if (normalColor) {
+            CATransition *animation = [CATransition animation];
+            [animation setType:kCATransitionFade];
+            [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+            [self.layer addAnimation:animation forKey:@"EaseOut"];
+            self.backgroundColor = normalColor;
+        }
+    }
+}
+
+- (void) setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    if(self.selected) {
+        UIColor *selectedColor = [backgroundStates objectForKey:[NSNumber numberWithInt:UIControlStateSelected]];
+        if (selectedColor) {
+            CATransition *animation = [CATransition animation];
+            [animation setType:kCATransitionFade];
+            [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+            [self.layer addAnimation:animation forKey:@"EaseOut"];
+            self.backgroundColor = selectedColor;
+        }
     }
 }
 
